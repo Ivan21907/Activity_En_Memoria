@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--<fragment android:name="cat.dam.ivan.activity_en_memoria.Fragment1"
+        android:id="@+id/fragment1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        tools:layout="@layout/fragment_1"
+        />
+
+    <fragment android:name="cat.dam.ivan.activity_en_memoria.Fragment2"
+        android:id="@+id/fragment2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        tools:layout="@layout/fragment_2"
+        />
+
+    <fragment android:name="cat.dam.ivan.activity_en_memoria.Fragment3"
+
+        android:id="@+id/fragment3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        tools:layout="@layout/fragment_3"
+        />-->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/red"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_lyt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:backgroundTint="@color/green"
+            android:text="Layout1"
+            android:textSize="11sp" />
+
+        <Button
+            android:id="@+id/btn_lyt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="5dp"
+            android:backgroundTint="@color/green"
+            android:text="Layout2"
+            android:textSize="11sp" />
+
+        <Button
+            android:id="@+id/btn_lyt3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="5dp"
+            android:backgroundTint="@color/green"
+            android:text="Layout3"
+            android:textSize="11sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray">
+
+        <!-- Fragment que mostrarem per defecte -->
+        <androidx.fragment.app.FragmentContainerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="cat.dam.ivan.activity_en_memoria.Fragment1"
+            android:id="@+id/fragment_container_view"
+            android:layout_weight="1"
+            tools:layout="@layout/fragment_1">
+
+        </androidx.fragment.app.FragmentContainerView>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/orange"
+    tools:context=".Fragment1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Quadrats de colors -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/red"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="ANTON"
+            android:fontFamily="@font/anton"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:background="@color/green"
+            android:fontFamily="@font/caesar_dressing"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="CAESAR DRESSING"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Titan One"
+            android:textSize="16sp"
+            android:fontFamily="@font/titan_one"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:padding="10dp"
+            android:background="@color/blue"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:background="@color/yellow"
+            android:fontFamily="@font/anton"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Beth Eller"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <!-- Paraules -->
+        <!-- Central -->
+        <TextView
+            android:id="@+id/tv_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LastNinja"
+            android:fontFamily="@font/last_ninja"
+            android:padding="10dp"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_centerVertical="true"/>
+        <!-- Below -->
+        <TextView
+            android:id="@+id/tv_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_1"
+            android:textSize="16sp"
+            android:layout_toRightOf="@id/tv_1"
+            android:text="Doctor Glitch"
+            android:fontFamily="@font/doctor_glitch"
+            android:padding="10dp"
+            android:textColor="@color/black" />
+        <TextView
+            android:id="@+id/tv_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_2"
+            android:layout_toRightOf="@id/tv_2"
+            android:textSize="16sp"
+            android:text="Pokemon"
+            android:fontFamily="@font/pokemon_solid"
+            android:padding="10dp"
+            android:textColor="@color/black" />
+        <!-- Above -->
+        <TextView
+            android:id="@+id/tv_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/tv_1"
+            android:layout_toRightOf="@id/tv_1"
+            android:textSize="16sp"
+            android:text="MagicRetro"
+            android:fontFamily="@font/magic_retro"
+            android:padding="10dp"
+            android:textColor="@color/black" />
+        <TextView
+            android:id="@+id/tv_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/tv_4"
+            android:textSize="16sp"
+            android:layout_toRightOf="@id/tv_4"
+            android:text="Stora"
+            android:fontFamily="@font/stora"
+            android:padding="10dp"
+            android:textColor="@color/black" />
+
+
+
+
+
+
+    </RelativeLayout>
+
+
+</FrameLayout>

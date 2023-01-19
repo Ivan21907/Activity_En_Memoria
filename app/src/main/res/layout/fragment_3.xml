@@ -1,0 +1,58 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- android:completionThreshold="1" diguem a partir de quantes lletres volem que mostri alguns noms -->
+    <AutoCompleteTextView
+        android:id="@+id/atv_Noms"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:completionHint="Escriu un nom (màx 30 caràcters)"
+        android:completionThreshold="1"
+        android:dropDownWidth="wrap_content"
+        android:maxLength="30"
+        android:text=""
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <Button
+        android:id="@+id/btn_14"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/btn_custom2"
+        android:text="OK"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/atv_Noms"
+        app:layout_constraintTop_toTopOf="@+id/atv_Noms" />
+
+    <!-- TextView on mostrarem el nom escollit en l'AutoCompleteView -->
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnSpan="2"
+        android:text=""
+        android:textStyle="bold"
+        android:textSize="60sp"
+        android:textColor="@color/blue"
+        android:fontFamily="@font/pokemon_hollow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_14" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
