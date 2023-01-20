@@ -6,36 +6,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!--<fragment android:name="cat.dam.ivan.activity_en_memoria.Fragment1"
-        android:id="@+id/fragment1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        tools:layout="@layout/fragment_1"
-        />
-
-    <fragment android:name="cat.dam.ivan.activity_en_memoria.Fragment2"
-        android:id="@+id/fragment2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        tools:layout="@layout/fragment_2"
-        />
-
-    <fragment android:name="cat.dam.ivan.activity_en_memoria.Fragment3"
-
-        android:id="@+id/fragment3"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        tools:layout="@layout/fragment_3"
-        />-->
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@color/red"
+        android:background="@color/purple"
         android:orientation="horizontal">
 
         <Button
