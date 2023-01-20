@@ -75,6 +75,8 @@ public class Fragment3 extends Fragment {
 
     //boto que s'encarrega de posar el nom de la persona seleccionada al textview
     private Button btn;
+    String nom;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -89,8 +91,9 @@ public class Fragment3 extends Fragment {
         atv_Noms.setAdapter(adapter);
 
         if (savedInstanceState != null) {
-            String text = savedInstanceState.getString("text");
-            atv_Noms.setText(text);
+            nom = savedInstanceState.getString("nom");
+            TextView tv = root.findViewById(R.id.tv);
+            tv.setText(nom);
         }
 
         //Boto que quan es selecciona un nom del llistat, es posa al textview
@@ -103,6 +106,8 @@ public class Fragment3 extends Fragment {
             TextView tv = (TextView) root.findViewById(R.id.tv);
             tv.setText(valor);
 
+            nom = tv.getText().toString();
+
             // Treure el text del AutoComplete
             //source.setText("");
         });
@@ -112,9 +117,10 @@ public class Fragment3 extends Fragment {
     };
 
     @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
+    public void onSaveInstanceState(Bundle outState)
+    {
+        outState.putString("text", nom);
         super.onSaveInstanceState(outState);
-        TextView tv = (TextView) getView().findViewById(R.id.tv);
-        outState.putString("valor", tv.getText().toString());
+
     }
 }
