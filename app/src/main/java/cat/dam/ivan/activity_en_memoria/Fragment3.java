@@ -114,12 +114,12 @@ public class Fragment3 extends Fragment {
 
         return root;
 
-    };
+    }
 
     @Override
-    public void onSaveInstanceState(Bundle outState)
-    {
-        outState.putString("text", nom);
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        //posem el text del textview en el bundle amb la clau "nom" per poder recuperar-lo
+        outState.putString("nom", nom);
         super.onSaveInstanceState(outState);
 
     }
