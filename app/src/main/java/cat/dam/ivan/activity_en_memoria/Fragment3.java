@@ -5,20 +5,15 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.FrameLayout;
+
 import android.widget.TextView;
 /**
  * A simple {@link Fragment} subclass.
@@ -30,7 +25,17 @@ public class Fragment3 extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    //Array amb els noms de les persones que volem que apareguin al AutoCompleteTextView
+    String[] noms = new String[]{
+            "ADRIANA","AINA","ALBA","ALEXANDRA","ANDREA","ANNA","ARIADNA","AZIZA","BEATRIZ","BERTA",
+            "BLANCA","CARLA","CARLOTA","CLARA","CLÀUDIA","CRISTINA","DELILA","DIANA","ELISABET",
+            "ESTER","EVA","FÀTIMA","GEORGINA","HELENA", "HOUDA","INÉS","IRENE","JUDIT","JÚLIA",
+            "KARIMA","LAIA","LORENA","MAR","MARIA","MARINA","MARTA","MIREIA","MÍRIA M","MÒNICA",
+            "NATÀLIA","NEREA","NEUS","NOÈLIA","NÚRIA","OLAYA","PATRÍCIA","PAULA","QUERALT","RAQUEL",
+            "SANDR A","SARA","SOFIA","SÍLVIA","SÒNIA","TURA","TÀNIA","ÚRSULA","VIOLETA","WASSIMA",
+            "YASIRA","ZAFIRA","IVAN"
+    };
+    String nom;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -63,21 +68,6 @@ public class Fragment3 extends Fragment {
 
     }
 
-    //Array amb els noms de les persones que volem que apareguin al AutoCompleteTextView
-    String[] noms = new String[]{
-            "ADRIANA","AINA","ALBA","ALEXANDRA","ANDREA","ANNA","ARIADNA","AZIZA","BEATRIZ","BERTA",
-            "BLANCA","CARLA","CARLOTA","CLARA","CLÀUDIA","CRISTINA","DELILA","DIANA","ELISABET",
-            "ESTER","EVA","FÀTIMA","GEORGINA","HELENA", "HOUDA","INÉS","IRENE","JUDIT","JÚLIA",
-            "KARIMA","LAIA","LORENA","MAR","MARIA","MARINA","MARTA","MIREIA","MÍRIA M","MÒNICA",
-            "NATÀLIA","NEREA","NEUS","NOÈLIA","NÚRIA","OLAYA","PATRÍCIA","PAULA","QUERALT","RAQUEL",
-            "SANDR A","SARA","SOFIA","SÍLVIA","SÒNIA","TURA","TÀNIA","ÚRSULA","VIOLETA","WASSIMA",
-            "YASIRA","ZAFIRA","IVAN"
-    };
-
-    //boto que s'encarrega de posar el nom de la persona seleccionada al textview
-    private Button btn;
-    String nom;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -85,25 +75,25 @@ public class Fragment3 extends Fragment {
         MainViewModel mainViewModel = new ViewModelProvider(requireActivity()).get(MainViewModel.class);
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_3, container, false);
-        btn = root.findViewById(R.id.btn_14);
+        //boto que s'encarrega de posar el nom de la persona seleccionada al textview
+        Button btn = root.findViewById(R.id.btn_14);
 
         //Creem un ArrayAdapter amb els noms de les persones i que desplegui els noms en un llistat
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_dropdown_item_1line, noms);
         //setContentView(R.layout.fragment_3);
-        AutoCompleteTextView atv_Noms = (AutoCompleteTextView) root.findViewById(R.id.atv_Noms);
+        AutoCompleteTextView atv_Noms = root.findViewById(R.id.atv_Noms);
         atv_Noms.setAdapter(adapter);
 
 //        if (savedInstanceState != null) {
 //            nom = savedInstanceState.getString("nom");
-            nom = mainViewModel.getname();
-            TextView tv = root.findViewById(R.id.tv);
-            tv.setText(nom);
+        nom = mainViewModel.getname();
+        TextView tv = root.findViewById(R.id.tv);
+        tv.setText(nom);
 
         //Boto que quan es selecciona un nom del llistat, es posa al textview
         btn.setOnClickListener(view -> {
             // Agafar text del AutoCompleteTextView
-            AutoCompleteTextView source = (AutoCompleteTextView) root.findViewById(R.id.atv_Noms);
-            String valor = source.getText().toString();
+            String valor = atv_Noms.getText().toString();
 
             // Mostrar el valor per pantalla
             tv.setText(valor);
@@ -119,10 +109,10 @@ public class Fragment3 extends Fragment {
     }
 
     @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-        //posem el text del textview en el bundle amb la clau "nom" per poder recuperar-lo
-        outState.putString("nom", nom);
-        super.onSaveInstanceState(outState);
+    public void onSaveInstanceState(@NonNull Bundle bundle) {
+        // No necessari
+        //        bundle.putString("nom", nom);
+        //        super.onSaveInstanceState(bundle);
 
     }
 }

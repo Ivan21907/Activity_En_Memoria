@@ -65,10 +65,8 @@ public class Fragment1 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_1, container, false);
         // Get the ViewModel from the Activity (the Activity is the owner)
         TextView tv_pokemon=view.findViewById(R.id.tv_3);
-        if (mainViewModel.getname().length() > 0) {
+        if (mainViewModel.getname()!=null) {
             tv_pokemon.setText(mainViewModel.getname());
-        } else {
-            tv_pokemon.setText("Pokémon");
         }
         return view;
     }

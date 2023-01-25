@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         final Button btn_lyt3 = findViewById(R.id.btn_lyt3);
 
         //mainViewModel = new MainViewModel();//no es pot fer aixi, cal fer-ho amb el ViewModelProvider
-        MainViewModel mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);//No es crea un nou MainViewModel, sino que es recupera el que ja existeix
+        //MainViewModel mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);//No es crea un nou MainViewModel, sino que es recupera el que ja existeix
 
         //fragment que mostrarem si el botó 1 es prem
         btn_lyt1.setOnClickListener(v ->
