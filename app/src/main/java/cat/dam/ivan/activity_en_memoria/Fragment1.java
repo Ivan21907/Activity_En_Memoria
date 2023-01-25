@@ -3,10 +3,12 @@ package cat.dam.ivan.activity_en_memoria;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,7 +16,6 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class Fragment1 extends Fragment {
-
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -58,7 +59,17 @@ public class Fragment1 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        //recover data from ViewModel
+        MainViewModel mainViewModel = new ViewModelProvider(requireActivity()).get(MainViewModel.class);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_1, container, false);
+        View view = inflater.inflate(R.layout.fragment_1, container, false);
+        // Get the ViewModel from the Activity (the Activity is the owner)
+        TextView tv_pokemon=view.findViewById(R.id.tv_3);
+        if (mainViewModel.getname().length() > 0) {
+            tv_pokemon.setText(mainViewModel.getname());
+        } else {
+            tv_pokemon.setText("Pokémon");
+        }
+        return view;
     }
 }

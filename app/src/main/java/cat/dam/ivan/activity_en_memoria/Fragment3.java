@@ -6,6 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.util.TypedValue;
@@ -24,7 +26,6 @@ import android.widget.TextView;
  * create an instance of this fragment.
  */
 public class Fragment3 extends Fragment {
-
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -80,21 +81,23 @@ public class Fragment3 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // recover data from the viewmodel
+        MainViewModel mainViewModel = new ViewModelProvider(requireActivity()).get(MainViewModel.class);
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_3, container, false);
         btn = root.findViewById(R.id.btn_14);
 
         //Creem un ArrayAdapter amb els noms de les persones i que desplegui els noms en un llistat
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_dropdown_item_1line, noms);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_dropdown_item_1line, noms);
         //setContentView(R.layout.fragment_3);
         AutoCompleteTextView atv_Noms = (AutoCompleteTextView) root.findViewById(R.id.atv_Noms);
         atv_Noms.setAdapter(adapter);
 
-        if (savedInstanceState != null) {
-            nom = savedInstanceState.getString("nom");
+//        if (savedInstanceState != null) {
+//            nom = savedInstanceState.getString("nom");
+            nom = mainViewModel.getname();
             TextView tv = root.findViewById(R.id.tv);
             tv.setText(nom);
-        }
 
         //Boto que quan es selecciona un nom del llistat, es posa al textview
         btn.setOnClickListener(view -> {
@@ -103,10 +106,9 @@ public class Fragment3 extends Fragment {
             String valor = source.getText().toString();
 
             // Mostrar el valor per pantalla
-            TextView tv = (TextView) root.findViewById(R.id.tv);
             tv.setText(valor);
-
             nom = tv.getText().toString();
+            mainViewModel.setname(nom);
 
             // Treure el text del AutoComplete
             //source.setText("");

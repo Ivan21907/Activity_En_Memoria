@@ -2,21 +2,11 @@ package cat.dam.ivan.activity_en_memoria;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
-
-import android.content.Context;
+import androidx.lifecycle.ViewModelProvider;
 import android.os.Bundle;
-import android.util.TypedValue;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.FrameLayout;
-import android.widget.TextView;
-
 
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +16,9 @@ public class MainActivity extends AppCompatActivity {
         final Button btn_lyt1 = findViewById(R.id.btn_lyt1);
         final Button btn_lyt2 = findViewById(R.id.btn_lyt2);
         final Button btn_lyt3 = findViewById(R.id.btn_lyt3);
+
+        //mainViewModel = new MainViewModel();//no es pot fer aixi, cal fer-ho amb el ViewModelProvider
+        MainViewModel mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);//No es crea un nou MainViewModel, sino que es recupera el que ja existeix
 
         //fragment que mostrarem si el botó 1 es prem
         btn_lyt1.setOnClickListener(v ->
